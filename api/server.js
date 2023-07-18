@@ -20,8 +20,11 @@ server.get('/', (req,res)=> {
 })
 
 
-//error middleware
-
-
+//error middlewares
+server.use((err, req, res, next) => {
+    res
+      .status(err.status || 500)
+      .json({ message: err.message || "Server error!.." });
+  });
 //export
 module.exports = server;
