@@ -2,9 +2,10 @@
 
 const express = require('express');
 const server = express();
+require ('dotenv').config();
 
 //global middleware
-
+server.use(express.json());
 
 //router
 
